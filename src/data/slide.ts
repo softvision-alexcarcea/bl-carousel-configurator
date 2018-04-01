@@ -1,8 +1,11 @@
 import { SlideAction } from 'data/slide-action';
+import { stringOrDefault, objectOrDefault, arrayOrDefault } from 'utils/value-or-default';
 
 export class Slide {
   title: String;
   description: String;
+  backgroundColor: String;
+  backgroundImage: String;
   actions: Array<SlideAction>;
 
   static create(config: any): Slide {
@@ -13,14 +16,12 @@ export class Slide {
     return new Slide(config);
   }
 
-  constructor(config: any = {}) {
-    const title: string = config.title;
-    const description: string = config.description;
-    const actions: Array<any> = config.actions;
+  constructor(config?: any) {
+    config = objectOrDefault(config) || {};
 
-    this.title = typeof title === 'string' ? title : '';
-    this.description = typeof description === 'string' ? description : '';
-    this.actions = Array.isArray(actions) ? actions.map(SlideAction.create) : [];
+    this.title = stringOrDefault(config.title);
+    this.description = stringOrDefault(config.description);
+    this.actions = arrayOrDefault(config.actions).map(SlideAction.create);
   }
 
   addAction() {

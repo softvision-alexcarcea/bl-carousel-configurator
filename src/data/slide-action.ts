@@ -1,3 +1,5 @@
+import { stringOrDefault, objectOrDefault, arrayOrDefault } from 'utils/value-or-default';
+
 export class SlideAction {
   url: String;
   text: String;
@@ -10,11 +12,9 @@ export class SlideAction {
     return new SlideAction(config);
   }
 
-  constructor(config: any = {}) {
-    const text: string = config.text;
-    this.text = typeof text === 'string' ? text : '';
-
-    const url: string = config.url;
-    this.url = typeof url === 'string' ? url : '';
+  constructor(config?: any) {
+    config = objectOrDefault(config) || {};
+    this.text = stringOrDefault(config.text);
+    this.url = stringOrDefault(config.url);
   }
 }
