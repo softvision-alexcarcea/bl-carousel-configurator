@@ -1,0 +1,9 @@
+@import 'mixins';
+
+.bl-carousel--slide-title,
+.bl-carousel--slide-description {
+  @include base-input;
+
+  display: block;
+  width: 100%;
+}
