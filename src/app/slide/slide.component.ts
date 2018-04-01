@@ -15,6 +15,9 @@ export class SlideComponent implements OnInit {
   i18n = {
     insertTitle: 'Insert Title...',
     insertDescription: 'Insert Description...',
+    backgroundSettings: 'Background Settings',
+    insertBackgroundColor: 'Choose Background Color...',
+    insertBackgroundImage: 'Choose Background Image...',
     addAction: 'Add Action',
     addSlide: 'Add Slide',
     updateSlide: 'Update Slide'
