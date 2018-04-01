@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { SlideActionComponent } from './slide-action.component';
+import { SlideAction } from 'data/slide-action';
 
 describe('SlideActionComponent', () => {
   let component: SlideActionComponent;
@@ -8,7 +9,8 @@ describe('SlideActionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlideActionComponent ]
+      declarations: [ SlideActionComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
@@ -16,6 +18,7 @@ describe('SlideActionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SlideActionComponent);
     component = fixture.componentInstance;
+    component.action = new SlideAction();
     fixture.detectChanges();
   });
 
